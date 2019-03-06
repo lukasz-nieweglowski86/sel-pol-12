@@ -13,7 +13,8 @@ class TestLitecartLoginPage(unittest.TestCase):
         cls.driver.find_element_by_name("login").click()
 
     def test_appearence_category(self):
-        self.driver.find_element_by_xpath("//span[@text='Appearence']").click()
+        self.driver.find_element_by_xpath("//span[text()='Appearence']").click()
+        self.assertEquals(self.driver.find_element_by_xpath("//span[text()='Template']"), "")
 
     @classmethod
     def tearDownClass(cls):
