@@ -1,7 +1,7 @@
 import unittest
 from selenium import webdriver
 
-class TestLitecartLoginPage(unittest.TestCase):
+class TestGooglePage(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
