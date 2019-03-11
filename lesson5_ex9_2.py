@@ -1,5 +1,6 @@
 import unittest
 from selenium import webdriver
+from selenium.webdriver.support.ui import Select
 
 class TestLitecartAdminPage(unittest.TestCase):
 
@@ -23,13 +24,17 @@ class TestLitecartAdminPage(unittest.TestCase):
 
         for country in countries_names:
             self.driver.find_element_by_xpath("//a[text()='%s']" % country).click()
-            zones_list = self.driver.find_elements_by_xpath("//table[@id='table-zones']/tbody/tr/td[3]/select")
+            zones_list = self.driver.find_elements_by_xpath("//tr/td[3]/select[contains(@name,'zones')]")
 
             zones_names = []
 
-            for zone in zones_list:
-                zones_names.append(zone.get_attribute("label"))
-            print(zones_names)
+            select = Select(self.driver.find_element_by_xpath("//table[@id='table-zones']/tbody/tr/td[3]/select"))
+            selected_option = select.first_selected_option.get_attribute("textContent")
+            print(selected_option)
+            
+            # for zone in zones_list:
+            #      zones_names.append(zone.text)
+
             # zones_names_sorted = zones_names[:]
             # zones_names_sorted.sort()
 
@@ -38,10 +43,10 @@ class TestLitecartAdminPage(unittest.TestCase):
             # else:
             #     print("Zones in %s are not sorted alphabetically." % country)
             self.driver.back()
-
-    @classmethod
-    def tearDownClass(cls):
-        cls.driver.quit()
+        
+    # @classmethod
+    # def tearDownClass(cls):
+    #     cls.driver.quit()
 
 if __name__ == '__main__':
     unittest.main()
