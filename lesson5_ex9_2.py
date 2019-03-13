@@ -1,7 +1,6 @@
 import unittest
 import time
 from selenium import webdriver
-from selenium.webdriver.support.ui import Select
 
 class TestLitecartAdminPage(unittest.TestCase):
 
@@ -37,7 +36,6 @@ class TestLitecartAdminPage(unittest.TestCase):
 
             for zone in zones_list:
                 zones_names.append(zone.text)
-                print(zone.text)
 
             zones_names_sorted = zones_names[:]
             zones_names_sorted.sort()
