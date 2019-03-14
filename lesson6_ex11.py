@@ -32,9 +32,6 @@ class TestLitecartMainPage(unittest.TestCase):
         self.driver.find_element_by_xpath("//span[@class='select2-selection__arrow']").click()        
         self.driver.find_element_by_xpath("//input[@class='select2-search__field']").send_keys("Poland", Keys.RETURN)
 
-        # select = self.driver.find_element_by_xpath("//input[@name='zone_code']")
-        # self.driver.execute_script("arguments[0].selectedIndex = 1;", select)
-
         self.driver.find_element_by_name("email").send_keys("lukasz.nieweglowski86+{}@gmail.com".format(time.time()))
         user_email = self.driver.find_element_by_name("email").get_attribute("value")
 
