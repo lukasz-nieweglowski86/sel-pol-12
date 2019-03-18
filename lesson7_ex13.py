@@ -1,5 +1,4 @@
 import unittest
-import time
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
@@ -25,6 +24,7 @@ class TestLitecartMainPage(unittest.TestCase):
             self.driver.find_element_by_name("add_cart_product").click()
             print("%s added to cart." % product)
             wait.until_not(EC.text_to_be_present_in_element((By.XPATH, "//span[@class='quantity']"), amount_in_cart))
+            self.driver.find_element_by_xpath("//i[@class='fa fa-home']").click()
         self.driver.find_element_by_xpath("//a[text()='Checkout »']").click()
         products_in_cart = len(self.driver.find_elements_by_xpath("//ul[@class='shortcuts']/li"))
         for i in range(0, products_in_cart):
