@@ -1,9 +1,7 @@
 import unittest
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.common.by import By
 
 class TestLitecartMainPage(unittest.TestCase):
 
@@ -17,12 +15,9 @@ class TestLitecartMainPage(unittest.TestCase):
         cls.driver.find_element_by_name("login").click()
 
     def test_windows(self):
-        wait = WebDriverWait(self.driver, 10)
-        
-        self.driver.find_element_by_xpath("//span[text()='Countries']").click()
-        
-        self.driver.find_element_by_xpath("//a[@class='button']").click()
-        
+        wait = WebDriverWait(self.driver, 10)        
+        self.driver.find_element_by_xpath("//span[text()='Countries']").click()        
+        self.driver.find_element_by_xpath("//a[@class='button']").click()        
         links_list = self.driver.find_elements_by_xpath("//a[i[@class='fa fa-external-link']]")
         main_window = self.driver.current_window_handle
         old_windows = self.driver.window_handles
