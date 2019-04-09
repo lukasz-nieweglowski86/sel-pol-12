@@ -20,58 +20,51 @@ class TestLitecartMainPage(unittest.TestCase):
         wait = WebDriverWait(self.driver, 10)
         self.driver.find_element_by_xpath("//span[text()='Catalog']").click()
         self.driver.find_element_by_xpath("//a[text()='Rubber Ducks']").click()
-        self.driver.find_element_by_xpath("//a[text()='Subcategory']").click()
+     
+        self.driver.find_element_by_xpath("//a[text()='Blue Duck']").click()
+        wait.until(EC.visibility_of_element_located((By.XPATH, "//td[@id='content']/h1")))
+        log_data = self.driver.get_log('browser')
+        if len(log_data) > 0:
+            print(log_data)
+        else:
+            print("No browser log.")
+        self.driver.back()
 
-        links_list = len(self.driver.find_elements_by_xpath("//tr/td[3]/a"))
-        for i in range(1,links_list):
-            i.click()
-            print("Link clicked.")
-            self.driver.back()
+        self.driver.find_element_by_xpath("//a[text()='Green Duck']").click()
+        wait.until(EC.visibility_of_element_located((By.XPATH, "//td[@id='content']/h1")))
+        log_data = self.driver.get_log('browser')
+        if len(log_data) > 0:
+            print(log_data)
+        else:
+            print("No browser log.")
+        self.driver.back()
 
-        # self.driver.find_element_by_xpath("//a[text()='Blue Duck']").click()
-        # wait.until(EC.visibility_of_element_located((By.XPATH, "//td[@id='content']/h1")))
-        # log_data = self.driver.get_log('browser')
-        # if len(log_data) > 0:
-        #     print(log_data)
-        # else:
-        #     print("No browser log.")
-        # self.driver.back()
+        self.driver.find_element_by_xpath("//a[text()='Purple Duck']").click()
+        wait.until(EC.visibility_of_element_located((By.XPATH, "//td[@id='content']/h1")))
+        log_data = self.driver.get_log('browser')
+        if len(log_data) > 0:
+            print(log_data)
+        else:
+            print("No browser log.")
+        self.driver.back()
 
-        # self.driver.find_element_by_xpath("//a[text()='Green Duck']").click()
-        # wait.until(EC.visibility_of_element_located((By.XPATH, "//td[@id='content']/h1")))
-        # log_data = self.driver.get_log('browser')
-        # if len(log_data) > 0:
-        #     print(log_data)
-        # else:
-        #     print("No browser log.")
-        # self.driver.back()
+        self.driver.find_element_by_xpath("//a[text()='Red Duck']").click()
+        wait.until(EC.visibility_of_element_located((By.XPATH, "//td[@id='content']/h1")))
+        log_data = self.driver.get_log('browser')
+        if len(log_data) > 0:
+            print(log_data)
+        else:
+            print("No browser log.")
+        self.driver.back()
 
-        # self.driver.find_element_by_xpath("//a[text()='Purple Duck']").click()
-        # wait.until(EC.visibility_of_element_located((By.XPATH, "//td[@id='content']/h1")))
-        # log_data = self.driver.get_log('browser')
-        # if len(log_data) > 0:
-        #     print(log_data)
-        # else:
-        #     print("No browser log.")
-        # self.driver.back()
-
-        # self.driver.find_element_by_xpath("//a[text()='Red Duck']").click()
-        # wait.until(EC.visibility_of_element_located((By.XPATH, "//td[@id='content']/h1")))
-        # log_data = self.driver.get_log('browser')
-        # if len(log_data) > 0:
-        #     print(log_data)
-        # else:
-        #     print("No browser log.")
-        # self.driver.back()
-
-        # self.driver.find_element_by_xpath("//a[text()='Yellow Duck']").click()
-        # wait.until(EC.visibility_of_element_located((By.XPATH, "//td[@id='content']/h1")))
-        # log_data = self.driver.get_log('browser')
-        # if len(log_data) > 0:
-        #     print(log_data)
-        # else:
-        #     print("No browser log.")
-        # self.driver.back()
+        self.driver.find_element_by_xpath("//a[text()='Yellow Duck']").click()
+        wait.until(EC.visibility_of_element_located((By.XPATH, "//td[@id='content']/h1")))
+        log_data = self.driver.get_log('browser')
+        if len(log_data) > 0:
+            print(log_data)
+        else:
+            print("No browser log.")
+        self.driver.back()
 
     @classmethod
     def tearDownClass(cls):
